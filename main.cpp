@@ -7,9 +7,11 @@
 
 namespace cpu1 {
         #include "c_module.c"
+        #include "c_submodule.c"
 }
 namespace cpu2 {
         #include "c_module.c"
+        #include "c_submodule.c"
 }
 int foo(int instance, int somevalue){
     switch (instance){
@@ -19,6 +21,7 @@ int foo(int instance, int somevalue){
         case 2: cpu2::set_a(somevalue);
                 cpu2::inc_a();
                 return cpu2::get_a();
+        default: return -1;
     }
 }
 
